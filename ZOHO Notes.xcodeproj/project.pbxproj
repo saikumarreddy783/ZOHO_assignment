@@ -107,7 +107,6 @@
 				3276BA5D2831814B004D4B93 /* Frameworks */,
 				3276BA5E2831814B004D4B93 /* Resources */,
 				C0C78E42403B66A9EE86BC1A /* [CP] Embed Pods Frameworks */,
-				074E4B21C648B6CFEF3C0BAB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -165,23 +164,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		074E4B21C648B6CFEF3C0BAB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ZOHO Notes/Pods-ZOHO Notes-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ZOHO Notes/Pods-ZOHO Notes-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZOHO Notes/Pods-ZOHO Notes-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		548246A5D69CE657A3CDB441 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

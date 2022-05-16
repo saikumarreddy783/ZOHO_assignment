@@ -6,33 +6,14 @@ target 'ZOHO Notes' do
   use_frameworks!
 
   # Pods for ZOHO Notes
-  pod 'Firebase/Crashlytics'
-  pod 'ImageSlideshow'
-  pod 'FreshchatSDK'
-  pod 'GoogleMaps'
-  pod 'GooglePlaces'
-  pod 'DropDown'
+  
   pod 'SkyFloatingLabelTextField'
-  pod 'ReachabilitySwift'
   pod 'SVProgressHUD'
-  pod 'MBProgressHUD'
-  pod 'FBSDKLoginKit', '11.0.0'
-  pod 'IQKeyboardManager'
-  pod 'Alamofire', '5.4.1'
+  pod 'Alamofire'
   pod 'SwiftyJSON'
-  pod 'SDWebImage'
-  pod 'MarqueeLabel'
-  pod 'GoogleSignIn', '5.0.2'
-  pod "ExpandableLabel"
-  pod "ImageSlideshow/SDWebImage"
   pod 'BonsaiController'
   pod 'FRHyperLabel'
   pod "TTGSnackbar"
-  pod 'RangeSeekSlider'
-  pod 'Firebase/Core'
-  pod 'Firebase/Analytics'
-  pod 'Firebase/Messaging'
-  pod 'Crashlytics'
   pod 'Fabric'
   pod 'SDWebImageWebPCoder'
   pod 'Kingfisher'

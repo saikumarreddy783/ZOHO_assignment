@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3230A75E2832C3AA006DB4D0 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230A75D2832C3AA006DB4D0 /* HomeVC.swift */; };
+		3230A7602832C415006DB4D0 /* ViewNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230A75F2832C415006DB4D0 /* ViewNotesVC.swift */; };
+		3230A7622832C440006DB4D0 /* CreateNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230A7612832C440006DB4D0 /* CreateNotesVC.swift */; };
+		3230A7642832C738006DB4D0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230A7632832C738006DB4D0 /* NetworkManager.swift */; };
+		3230A76B2832C7E9006DB4D0 /* NotesCVCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230A7692832C7E9006DB4D0 /* NotesCVCellCollectionViewCell.swift */; };
+		3230A76C2832C7E9006DB4D0 /* NotesCVCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3230A76A2832C7E9006DB4D0 /* NotesCVCellCollectionViewCell.xib */; };
+		32737792283401F500A75C7A /* NotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32737791283401F500A75C7A /* NotesModel.swift */; };
 		3276BA642831814B004D4B93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3276BA632831814B004D4B93 /* AppDelegate.swift */; };
 		3276BA662831814B004D4B93 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3276BA652831814B004D4B93 /* SceneDelegate.swift */; };
 		3276BA682831814B004D4B93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3276BA672831814B004D4B93 /* ViewController.swift */; };
@@ -18,6 +25,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3230A75D2832C3AA006DB4D0 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		3230A75F2832C415006DB4D0 /* ViewNotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewNotesVC.swift; sourceTree = "<group>"; };
+		3230A7612832C440006DB4D0 /* CreateNotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNotesVC.swift; sourceTree = "<group>"; };
+		3230A7632832C738006DB4D0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		3230A7692832C7E9006DB4D0 /* NotesCVCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesCVCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		3230A76A2832C7E9006DB4D0 /* NotesCVCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesCVCellCollectionViewCell.xib; sourceTree = "<group>"; };
+		32737791283401F500A75C7A /* NotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesModel.swift; sourceTree = "<group>"; };
 		3276BA602831814B004D4B93 /* ZOHO Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZOHO Notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3276BA632831814B004D4B93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3276BA652831814B004D4B93 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +58,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		327377972834250C00A75C7A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3230A75D2832C3AA006DB4D0 /* HomeVC.swift */,
+				3230A75F2832C415006DB4D0 /* ViewNotesVC.swift */,
+				3230A7612832C440006DB4D0 /* CreateNotesVC.swift */,
+				3230A7692832C7E9006DB4D0 /* NotesCVCellCollectionViewCell.swift */,
+				3230A76A2832C7E9006DB4D0 /* NotesCVCellCollectionViewCell.xib */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		327377982834254B00A75C7A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				32737791283401F500A75C7A /* NotesModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3276BA572831814B004D4B93 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +99,8 @@
 		3276BA622831814B004D4B93 /* ZOHO Notes */ = {
 			isa = PBXGroup;
 			children = (
+				327377982834254B00A75C7A /* Model */,
+				327377972834250C00A75C7A /* View Controllers */,
 				3276BA632831814B004D4B93 /* AppDelegate.swift */,
 				3276BA652831814B004D4B93 /* SceneDelegate.swift */,
 				3276BA672831814B004D4B93 /* ViewController.swift */,
@@ -73,6 +109,7 @@
 				3276BA712831814D004D4B93 /* LaunchScreen.storyboard */,
 				3276BA742831814D004D4B93 /* Info.plist */,
 				3276BA6C2831814B004D4B93 /* ZOHO_Notes.xcdatamodeld */,
+				3230A7632832C738006DB4D0 /* NetworkManager.swift */,
 			);
 			path = "ZOHO Notes";
 			sourceTree = "<group>";
@@ -83,7 +120,6 @@
 				3C6A8A35AE48EA857AF8A8D9 /* Pods-ZOHO Notes.debug.xcconfig */,
 				75885821243C731E1E9ADBC0 /* Pods-ZOHO Notes.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -156,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3276BA732831814D004D4B93 /* LaunchScreen.storyboard in Resources */,
+				3230A76C2832C7E9006DB4D0 /* NotesCVCellCollectionViewCell.xib in Resources */,
 				3276BA702831814D004D4B93 /* Assets.xcassets in Resources */,
 				3276BA6B2831814B004D4B93 /* Main.storyboard in Resources */,
 			);
@@ -210,10 +247,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3230A7622832C440006DB4D0 /* CreateNotesVC.swift in Sources */,
+				32737792283401F500A75C7A /* NotesModel.swift in Sources */,
 				3276BA682831814B004D4B93 /* ViewController.swift in Sources */,
+				3230A75E2832C3AA006DB4D0 /* HomeVC.swift in Sources */,
+				3230A7642832C738006DB4D0 /* NetworkManager.swift in Sources */,
 				3276BA642831814B004D4B93 /* AppDelegate.swift in Sources */,
 				3276BA662831814B004D4B93 /* SceneDelegate.swift in Sources */,
+				3230A76B2832C7E9006DB4D0 /* NotesCVCellCollectionViewCell.swift in Sources */,
 				3276BA6E2831814B004D4B93 /* ZOHO_Notes.xcdatamodeld in Sources */,
+				3230A7602832C415006DB4D0 /* ViewNotesVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

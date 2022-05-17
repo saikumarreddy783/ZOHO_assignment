@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="NotesCVCellCollectionViewCell" customModule="ZOHO_Notes" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="379" height="272"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="379" height="272"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IBL-YL-Rgf">
+                        <rect key="frame" x="3" y="3" width="373" height="266"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="asdfghjkldfghjkldfghj" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eze-Np-NQe">
+                                <rect key="frame" x="20" y="20" width="333" height="25.5"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztp-d4-G6M">
+                                <rect key="frame" x="20" y="234.5" width="333" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ztp-d4-G6M" secondAttribute="trailing" constant="20" id="Ecy-zm-MJE"/>
+                            <constraint firstAttribute="trailing" secondItem="eze-Np-NQe" secondAttribute="trailing" constant="20" id="Gjj-uX-lo7"/>
+                            <constraint firstItem="ztp-d4-G6M" firstAttribute="leading" secondItem="IBL-YL-Rgf" secondAttribute="leading" constant="20" id="VlN-VB-s51"/>
+                            <constraint firstItem="eze-Np-NQe" firstAttribute="leading" secondItem="IBL-YL-Rgf" secondAttribute="leading" constant="20" id="ZZx-GV-QpU"/>
+                            <constraint firstItem="eze-Np-NQe" firstAttribute="top" secondItem="IBL-YL-Rgf" secondAttribute="top" constant="20" id="gZF-A2-5So"/>
+                            <constraint firstAttribute="bottom" secondItem="ztp-d4-G6M" secondAttribute="bottom" constant="10" id="wUQ-e4-Sr1"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="IBL-YL-Rgf" secondAttribute="bottom" constant="3" id="KAi-BQ-tQR"/>
+                <constraint firstItem="IBL-YL-Rgf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="3" id="N67-7l-e6j"/>
+                <constraint firstAttribute="trailing" secondItem="IBL-YL-Rgf" secondAttribute="trailing" constant="3" id="lwb-Q5-9UX"/>
+                <constraint firstItem="IBL-YL-Rgf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="x5v-uf-Dam"/>
+            </constraints>
+            <size key="customSize" width="379" height="272"/>
+            <connections>
+                <outlet property="backView" destination="IBL-YL-Rgf" id="NyT-f6-MgV"/>
+                <outlet property="lblTime" destination="ztp-d4-G6M" id="nft-dF-cr2"/>
+                <outlet property="lblTitle" destination="eze-Np-NQe" id="2Ed-rI-oXz"/>
+            </connections>
+            <point key="canvasLocation" x="376.08695652173918" y="188.16964285714286"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

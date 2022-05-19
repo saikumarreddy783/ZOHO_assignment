@@ -36,7 +36,6 @@ class CreateNotesVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
     }
     
@@ -60,7 +59,7 @@ class CreateNotesVC: UIViewController {
     
     
     @IBAction func onSaveBtn(_ sender: UIButton) {
-        
+        if noteTitleTxt.text != ""{
         var noteId = HomeVC()
         let date = Date()
         
@@ -74,7 +73,10 @@ class CreateNotesVC: UIViewController {
         PersistanceService.shared.saveNotesData(note: note)
         
         _ = navigationController?.popViewController(animated: true)
-        
+        }else{
+            showAlertMsg(Message: "Please add Title and Body or Image", AutoHide: false)
+            
+        }
     }
     
     

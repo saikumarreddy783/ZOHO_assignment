@@ -60,7 +60,7 @@
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" image="plus" catalog="system"/>
+                                <state key="normal" image="Vector"/>
                                 <connections>
                                     <action selector="onCreateNoteBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ita-qh-MG1"/>
                                 </connections>
@@ -322,9 +322,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Vector" width="14.5" height="14.5"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="paperclip" catalog="system" width="121" height="128"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="placeholderTextColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

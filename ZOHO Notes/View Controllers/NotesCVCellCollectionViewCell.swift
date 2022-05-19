@@ -20,5 +20,5 @@ class NotesCVCellCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
 }

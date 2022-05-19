@@ -10,15 +10,13 @@ import Alamofire
 import SwiftyJSON
 import SVProgressHUD
 
-
-
 class HomeVC: UIViewController {
     
     
-//MARK: - Variables
-    var note = [Post]()
-    let ApiUrl = "https://jsonplaceholder.typicode.com/posts"//"https://raw.githubusercontent.com/RishabhRaghunath/JustATest/master/posts"
- 
+    //MARK: - Variables
+    var note = [Notes]()
+    let ApiUrl = "https://raw.githubusercontent.com/RishabhRaghunath/JustATest/master/posts"
+    
     //MARK: - Outlets
     @IBOutlet weak var notesCollectionView: UICollectionView!{
         didSet{
@@ -42,20 +40,18 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getNotes{ notesData in
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getNotes{ [self] notesData in
+            note = []
             self.note = notesData
+            note += PersistanceService.shared.getLocalSavedNotes()
             DispatchQueue.main.async {
                 self.notesCollectionView.reloadData()
             }
-            
-
         }
-//        getNotes { (notesData) in
-//            for post in notesData{
-//                print(post.title)
-//            }
-//        }
-        
     }
     
     @IBAction func onCreateNoteBtn(_ sender: UIButton) {
@@ -67,97 +63,150 @@ class HomeVC: UIViewController {
     
     
     //MARK: - API Call
-    func getNotes(completion: @escaping([Post]) -> Void){
+    func getNotes(completion: @escaping([Notes]) -> Void){
         
-    
         AF.request(ApiUrl, method: .get).validate().responseData { [self] response in
             switch response.result{
             case .success(let data):
-                
-
                 do{
                     let json = try? JSONSerialization.jsonObject(with: data) as! [NSDictionary]
                     print(json)
-
+                    
                     let jsonDecoder = JSONDecoder()
-                    let notesData = try jsonDecoder.decode([Post].self, from: data)
-
+                    let notesData = try jsonDecoder.decode([Notes].self, from: data)
+                    
                     completion(notesData)
                     
-                    
                 }catch{
-                    
                     print("catch block")
                 }
-
-
             case .failure(let error):
                 print(error)
+            }
+        }
     }
-    }
-    }
-//    func getNotes(completionHandler: @escaping([Post]) -> Void){
-//        let url = URL(string: "https://raw.githubusercontent.com/RishabhRaghunath/JustATest/master/posts")!
-//        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-//            guard let data =  data else{ return }
-//            do{
-//                let notesData = try JSONDecoder().decode([Post].self, from: data)
-//                completionHandler(notesData)
-//            }catch{
-//                print("this is catch block")
-//
-//            }
-//        }.resume()
-//    }
-    }
-    
+}
+
 
 
 extension HomeVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-       
-            return self.note.count
-       
-        
+        return self.note.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = notesCollectionView.dequeueReusableCell(withReuseIdentifier: "NotesCVCellCollectionViewCell", for: indexPath) as! NotesCVCellCollectionViewCell
-       
-        
         
         if note.count > 0{
             let item = note[indexPath.row]
-            
             cell.lblTitle.text = item.title
-            cell.lblTime.text = "\(item.userId)" //"\(item.time)"
+            
+            //MARK: - convert time to Local
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            
+            if item.time.contains(","){
+                cell.lblTime.text = item.time
+                
+            }else{
+                
+                let dateValue = Double(item.time)
+                
+                var dateLbl = NSDate(timeIntervalSince1970: dateValue ?? 0)
+                cell.lblTime.text = "\(dateFormatter.string(from: dateLbl as Date))"
+            }
         }
         
-        
+        switch indexPath.row{
+        case 0:
+            cell.backView.backgroundColor = UIColor(red: 243/255, green: 206/255, blue: 206/255, alpha: 1.0)
+            
+        case 1:
+            cell.backView.backgroundColor = UIColor(red: 255/255, green: 238/255, blue: 211/255, alpha: 1.0)
+            
+        case 2:
+            cell.backView.backgroundColor = UIColor(red: 197/255, green: 246/255, blue: 185/255, alpha: 1.0)
+            
+        case 3:
+            cell.backView.backgroundColor = UIColor(red: 255/255, green: 117/255, blue: 97/255, alpha: 1.0)
+            
+        case 4:
+            cell.backView.backgroundColor = UIColor(red: 162/255, green: 255/255, blue: 237/255, alpha: 1.0)
+            
+        case 5:
+            cell.backView.backgroundColor = UIColor(red: 198/255, green: 133/255, blue: 214/255, alpha: 1.0)
+            
+        case 6:
+            cell.backView.backgroundColor = UIColor(red: 137/255, green: 207/255, blue: 15/255, alpha: 1.0)
+            
+        case 7:
+            cell.backView.backgroundColor = UIColor(red: 153/255, green: 238/255, blue: 153/255, alpha: 1.0)
+            
+        case 8:
+            cell.backView.backgroundColor = UIColor(red: 153/255, green: 153/255, blue: 204/255, alpha: 1.0)
+        case 9:
+            cell.backView.backgroundColor = UIColor(red: 243/255, green: 206/255, blue: 206/255, alpha: 1.0)
+            
+        case 10:
+            cell.backView.backgroundColor = UIColor(red: 255/255, green: 238/255, blue: 211/255, alpha: 1.0)
+            
+        case 11:
+            cell.backView.backgroundColor = UIColor(red: 197/255, green: 246/255, blue: 185/255, alpha: 1.0)
+            
+        case 12:
+            cell.backView.backgroundColor = UIColor(red: 255/255, green: 117/255, blue: 97/255, alpha: 1.0)
+            
+        case 13:
+            cell.backView.backgroundColor = UIColor(red: 162/255, green: 255/255, blue: 237/255, alpha: 1.0)
+            
+        case 14:
+            cell.backView.backgroundColor = UIColor(red: 198/255, green: 133/255, blue: 214/255, alpha: 1.0)
+            
+        case 15:
+            cell.backView.backgroundColor = UIColor(red: 137/255, green: 207/255, blue: 15/255, alpha: 1.0)
+            
+        case 16:
+            cell.backView.backgroundColor = UIColor(red: 153/255, green: 238/255, blue: 153/255, alpha: 1.0)
+            
+        case 8:
+            cell.backView.backgroundColor = UIColor(red: 153/255, green: 153/255, blue: 204/255, alpha: 1.0)
+            
+        default:
+            cell.backView.backgroundColor = UIColor(red: 243/255, green: 206/255, blue: 206/255, alpha: 1.0)
+            
+        }
         
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemSize = (collectionView.frame.size.width-10)/2
+        let item = note[indexPath.row]
+        
+        var itemSize = (collectionView.frame.size.width-10)/2
+        
+        if (item.image != nil) || item.imgData != nil{
+            itemSize = collectionView.frame.size.width-10
+            var itemsizeheight = (collectionView.frame.size.height-10)/3.5
+            return CGSize(width: itemSize, height: itemsizeheight)
+            
+        }
         return CGSize(width: itemSize, height: itemSize)
+        
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 5
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 5
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = note[indexPath.row]
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ViewNotesVC") as! ViewNotesVC
-        //nextViewController.viewImg = item.image
-        nextViewController.viewBody = item.body
-        nextViewController.viewTitle = item.title
-        //nextViewController.viewTime = "\(item.time)"
+        
+        nextViewController.noteDetail = item
         
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }

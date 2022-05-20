@@ -30,12 +30,18 @@ class CreateNotesVC: UIViewController {
             saveBtn.layer.cornerRadius = 10
         }
     }
-    @IBOutlet weak var noteTitleTxt: UITextField!
+    @IBOutlet weak var noteTitleTxt: UITextField!{
+        didSet{
+            self.noteTitleTxt.attributedPlaceholder = NSAttributedString(string:"Title", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        }
+    }
     @IBOutlet weak var noteBodyTxtView: UITextView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -60,19 +66,19 @@ class CreateNotesVC: UIViewController {
     
     @IBAction func onSaveBtn(_ sender: UIButton) {
         if noteTitleTxt.text != ""{
-        var noteId = HomeVC()
-        let date = Date()
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        let todayDate = dateFormatter.string(from: date)
-        
-        let DateTime = "\(todayDate)"
-        
-        var note = Notes(id: "\(noteId.note.count+1)", title: noteTitleTxt.text ?? "", body: noteBodyTxtView.text ?? "", time: DateTime ?? "", image: nil,  imgData: pickedNotesImage)
-        PersistanceService.shared.saveNotesData(note: note)
-        
-        _ = navigationController?.popViewController(animated: true)
+            let noteId = HomeVC()
+            let date = Date()
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            let todayDate = dateFormatter.string(from: date)
+            
+            let DateTime = "\(todayDate)"
+            
+            let note = Notes(id: "\(noteId.note.count+1)", title: noteTitleTxt.text ?? "", body: noteBodyTxtView.text ?? "", time: DateTime , image: nil,  imgData: pickedNotesImage)
+            PersistanceService.shared.saveNotesData(note: note)
+            
+            _ = navigationController?.popViewController(animated: true)
         }else{
             showAlertMsg(Message: "Please add Title and Body or Image", AutoHide: false)
             

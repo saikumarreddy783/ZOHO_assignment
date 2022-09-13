@@ -8,7 +8,6 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-import SVProgressHUD
 
 class HomeVC: UIViewController {
     
@@ -68,9 +67,10 @@ class HomeVC: UIViewController {
         AF.request(ApiUrl, method: .get).validate().responseData { [self] response in
             switch response.result{
             case .success(let data):
+                print(data)
                 do{
-                    let json = try? JSONSerialization.jsonObject(with: data) as! [NSDictionary]
-                    print(json)
+//                    let json = try? JSONSerialization.jsonObject(with: data) as? [NSDictionary]
+//                    print(json)
                     
                     let jsonDecoder = JSONDecoder()
                     let notesData = try jsonDecoder.decode([Notes].self, from: data)
@@ -170,7 +170,7 @@ extension HomeVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         case 16:
             cell.backView.backgroundColor = UIColor(red: 153/255, green: 238/255, blue: 153/255, alpha: 1.0)
             
-        case 8:
+        case 17:
             cell.backView.backgroundColor = UIColor(red: 153/255, green: 153/255, blue: 204/255, alpha: 1.0)
             
         default:
@@ -187,7 +187,7 @@ extension HomeVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         if (item.image != nil) || item.imgData != nil{
             itemSize = collectionView.frame.size.width-10
-            var itemsizeheight = (collectionView.frame.size.height-10)/3.5
+            let itemsizeheight = (collectionView.frame.size.height-10)/3.5
             return CGSize(width: itemSize, height: itemsizeheight)
             
         }

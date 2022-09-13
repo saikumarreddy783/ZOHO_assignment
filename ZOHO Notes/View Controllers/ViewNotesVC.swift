@@ -10,7 +10,6 @@ import Foundation
 import SDWebImage
 import Kingfisher
 import PINRemoteImage
-import SwiftUI
 
 class ViewNotesVC: UIViewController, UITextViewDelegate {
     
@@ -72,12 +71,10 @@ class ViewNotesVC: UIViewController, UITextViewDelegate {
         func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
             if (URL.absoluteString == linkUrl) {
                 UIApplication.shared.open(URL) { (Bool) in
-                    
                 }
             }
             return false
         }
-        
         
         if keyword != "" || linkUrl != ""{
             noteBodyTextView.hyperLink(originalText: textWithoutlink2, hyperLink: keyword ?? "", urlString: linkUrl ?? "")
@@ -102,8 +99,8 @@ class ViewNotesVC: UIViewController, UITextViewDelegate {
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
         newImageView.addGestureRecognizer(tap)
         self.view.addSubview(newImageView)
-        self.navigationController?.isNavigationBarHidden = true
-        self.tabBarController?.tabBar.isHidden = true
+        //self.navigationController?.isNavigationBarHidden = true
+        //self.tabBarController?.tabBar.isHidden = true
     }
     
     //MARK: - function for closing image expansion

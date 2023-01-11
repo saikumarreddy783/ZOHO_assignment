@@ -12,6 +12,11 @@ import Kingfisher
 import PINRemoteImage
 
 class ViewNotesVC: UIViewController, UITextViewDelegate {
+    @IBOutlet weak var deleteNotesBtn: UIButton!{
+        didSet{
+            deleteNotesBtn.layer.cornerRadius = 10
+        }
+    }
     
     @IBOutlet weak var backBtn: UIButton!{
         didSet{
@@ -113,6 +118,14 @@ class ViewNotesVC: UIViewController, UITextViewDelegate {
         _ = navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func delNoteBtnAction(_ sender: UIButton) {
+        if let item = PersistanceService.savedNotes().filter({$0.note_title == noteDetail.title}).first{
+            PersistanceService.shared.context.delete(item)
+            PersistanceService.shared.saveContext()
+            _ = navigationController?.popViewController(animated: true)
+        }
+        
+    }
     
     //MARK: - convert time to Local
     func getLocalTime(){
@@ -153,7 +166,7 @@ extension UITextView {
                    urlString: String,
                    withFont font: UIFont = UIFont.systemFont(ofSize: 20.0),
                    textColor: UIColor = .gray,
-                   linkColor: UIColor = .blue) {
+                   linkColor: UIColor = UIColor(red: 8/255, green: 143/255, blue: 143/255, alpha: 1.0)) {
         isEditable = false
         
         let style = NSMutableParagraphStyle()

@@ -51,7 +51,7 @@ class CreateNotesVC: UIViewController {
     }
     
     @IBAction func onAttachImhBtn(_ sender: UIButton) {
-        let actionSheet = UIAlertController(title: "Select Option", message: nil, preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: "Select an option for attaching Image", message: nil, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) -> Void in
             self.openCamera()
         }))

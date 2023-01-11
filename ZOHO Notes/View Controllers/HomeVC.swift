@@ -14,7 +14,7 @@ class HomeVC: UIViewController {
     
     //MARK: - Variables
     var note = [Notes]()
-    let ApiUrl = "https://raw.githubusercontent.com/RishabhRaghunath/JustATest/master/posts"
+    let ApiUrl = "https://github.com/RishabhRaghunath/JustATest/blob/master/notes"//"https://raw.githubusercontent.com/RishabhRaghunath/JustATest/master/posts"
     
     //MARK: - Outlets
     @IBOutlet weak var notesCollectionView: UICollectionView!{
@@ -38,19 +38,29 @@ class HomeVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //print(PersistanceService.savedNotes())
+        for i in PersistanceService.savedNotes(){
+            print(i)
+        }
+                    
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        getNotes{ [self] notesData in
-            note = []
-            self.note = notesData
-            note += PersistanceService.shared.getLocalSavedNotes()
-            DispatchQueue.main.async {
-                self.notesCollectionView.reloadData()
-            }
+//        getNotes{ [self] notesData in
+//            note = []
+//            self.note = notesData
+//            note += PersistanceService.shared.getLocalSavedNotes()
+//            DispatchQueue.main.async {
+//                self.notesCollectionView.reloadData()
+//            }
+//        }
+        note = []
+        note += PersistanceService.shared.getLocalSavedNotes()
+        DispatchQueue.main.async {
+            self.notesCollectionView.reloadData()
         }
+
     }
     
     @IBAction func onCreateNoteBtn(_ sender: UIButton) {
@@ -69,8 +79,6 @@ class HomeVC: UIViewController {
             case .success(let data):
                 print(data)
                 do{
-//                    let json = try? JSONSerialization.jsonObject(with: data) as? [NSDictionary]
-//                    print(json)
                     
                     let jsonDecoder = JSONDecoder()
                     let notesData = try jsonDecoder.decode([Notes].self, from: data)
@@ -114,7 +122,7 @@ extension HomeVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
                 
                 let dateValue = Double(item.time)
                 
-                var dateLbl = NSDate(timeIntervalSince1970: dateValue ?? 0)
+                let dateLbl = NSDate(timeIntervalSince1970: dateValue ?? 0)
                 cell.lblTime.text = "\(dateFormatter.string(from: dateLbl as Date))"
             }
         }

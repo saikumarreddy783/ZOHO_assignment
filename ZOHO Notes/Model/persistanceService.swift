@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 
 // MARK: - Core Data stack
@@ -69,6 +70,23 @@ class PersistanceService {
         
         saveContext()
         
+        
+    }
+    static func savedNotes() -> [NotesLocalData]{
+         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let fatchRequest: NSFetchRequest<NotesLocalData> = NotesLocalData.fetchRequest()
+        do{
+            
+            var savedNotes = try PersistanceService.shared.context.fetch(fatchRequest)
+                return savedNotes
+            
+            
+        }catch{
+            return []
+        }
+    }
+    
+    static func deleteNote(item: NotesLocalData){
         
     }
     
